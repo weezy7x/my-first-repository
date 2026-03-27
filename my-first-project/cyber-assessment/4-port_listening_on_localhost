@@ -1,9 +1,2 @@
 #!/bin/bash
-if command -v ss &> /dev/null; then
-    ss -tlnp 2>/dev/null | grep LISTEN | awk '{print $4}' | cut -d: -f2 | sort -u
-elif command -v netstat &> /dev/null; then
-    netstat -tlnp 2>/dev/null | grep LISTEN | awk '{print $4}' | cut -d: -f2 | sort -u
-else
-    echo "Error: Neither 'ss' nor 'netstat' found" >&2
-    exit 1
-fi
+ss -tlnp 2>/dev/null | grep LISTEN | awk '{print $4}' | cut -d: -f2 | sort -u
