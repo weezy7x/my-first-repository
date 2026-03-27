@@ -1,2 +1,2 @@
 #!/bin/bash
-sort | uniq -c | while read count word; do if [ "$count" -eq 1 ]; then echo "$word"; fi; done
+sort | uniq -c | while read c w; do [ "$c" = "1" ] && echo "$w"; done
